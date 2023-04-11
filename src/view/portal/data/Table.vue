@@ -1,7 +1,7 @@
 <template>
     <div class="tableDatasty" id="tableData" style="margin:10px;">
       <template v-if="hasData()">
-        <div class="tipinfo">拖拽立方体维度或度量到此处作为交叉表的字段</div>
+        <div class="tipinfo">拖拽数据集维度或度量到此处作为交叉表的字段</div>
       </template>
       <template v-if="!hasData()">
         <b>交叉表字段：</b>
@@ -59,14 +59,14 @@ export default {
   },
   data(){
     return {
-      
+
     }
   },
   mounted(){
     this.bindDropEvent();
   },
   computed: {
-     
+
   },
   methods: {
      setUpdate(){
@@ -109,7 +109,7 @@ export default {
           };
         }
         $.contextMenu({
-          selector: '#tableData .ibox-tools button.btn', 
+          selector: '#tableData .ibox-tools button.btn',
           trigger: 'left',
           delay: 500,
           autoHide:true,
@@ -198,7 +198,7 @@ export default {
               var tp = dims[i - 1];
               dims[i - 1] = dims[i];
               dims[i] = tp;
-             
+
             }
           }else
           if(tp == 'right'){
@@ -209,7 +209,7 @@ export default {
               var tp = dims[i + 1];
               dims[i + 1] = dims[i];
               dims[i] = tp;
-             
+
             }
           }
           break;
@@ -306,14 +306,14 @@ export default {
         },
         drop:function(e, ui){
           var json = ts.comp;
-          
+
           //清除边框颜色
           $("#tableData").css("border", "1px dotted #666");
 
           //获取TREE
           var ref = $("#datasettree").jstree(true);
           var node = ref.get_node(ui.draggable[0]);
-          
+
           //判断拖入的维度及度量是否和以前维度及度量在同一个表。
           if(json.cubeId != undefined){
             if(json.cubeId != node.li_attr.cubeId){
@@ -323,9 +323,9 @@ export default {
           }else{
             json.cubeId = node.li_attr.cubeId;
             json.dsetId = node.li_attr.dsetId;
-            json.dsid = node.li_attr.dsid;			
+            json.dsid = node.li_attr.dsid;
           }
-          
+
           if(!json.kpiJson){
             json.kpiJson = [];
           };
@@ -344,7 +344,7 @@ export default {
               utils.msginfo("度量已经存在。");
               return;
             }
-            
+
             ts.setUpdate();
             ts.tableView();
           }
@@ -358,7 +358,7 @@ export default {
                 utils.msginfo("维度已经存在。");
                 return;
               }
-             
+
               ts.setUpdate();
               ts.tableView();
             //}
@@ -368,7 +368,7 @@ export default {
     }
   },
   watch: {
-    
+
   }
 }
 </script>

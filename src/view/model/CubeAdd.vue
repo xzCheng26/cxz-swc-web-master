@@ -2,10 +2,10 @@
   <el-form :model="cube" :rules="rules" ref="cubeForm">
       <el-tabs v-model="active" type="card">
         <el-tab-pane label="基本信息" name="base">
-          <el-form-item label="立方体名称" label-width="100px" prop="name">
+          <el-form-item label="数据集名称" label-width="100px" prop="name">
             <el-input v-model="cube.name"></el-input>
           </el-form-item>
-          <el-form-item label="立方体说明" label-width="100px" prop="desc">
+          <el-form-item label="数据集说明" label-width="100px" prop="desc">
             <el-input type="textarea" v-model="cube.desc"></el-input>
           </el-form-item>
           <el-form-item label="对应数据集" label-width="100px" prop="dsetId">
@@ -24,7 +24,7 @@
             </el-select>
           </el-form-item>
         </el-tab-pane>
-        <el-tab-pane label="立方体信息" name="cubeInfo">
+        <el-tab-pane label="数据集信息" name="cubeInfo">
             <div class="row">
               <div class="col-sm-4" >
                 <div class="ibox">
@@ -119,10 +119,10 @@ export default {
     }
   },
   components: {
-		
+
 	},
   mounted() {
-    
+
   },
   computed: {},
   methods: {
@@ -183,7 +183,7 @@ export default {
               allnodes.push(tnode);
               exec(tnode, allnodes);
             });
-          }	
+          }
 
           var dims = []
           exec(rightRef.get_node('cubewd'), dims);
@@ -238,7 +238,7 @@ export default {
               dataType:"JSON",
               data:json,
               success:function(resp){
-                ts.$notify.success("立方体配置成功。");
+                ts.$notify.success("数据集配置成功。");
                 ts.$parent.$parent.$refs["cubeInfo"].loadData();
               }
             }, ts, load);
@@ -327,15 +327,15 @@ export default {
           },
           plugins: ["wholerow", "checkbox"],
         }).bind("ready.jstree", function () {
-          
+
         });
     },
     initRightTree(cube){
-      //加载立方体字段
-      var targdt = [{id:'cbroot', text:'数据立方体', icon:'fa fa-cubes', state:{opened:true}, children:[]}];
+      //加载数据集字段
+      var targdt = [{id:'cbroot', text:'数据数据集', icon:'fa fa-cubes', state:{opened:true}, children:[]}];
       targdt[0].children.push({id:"cubewd", text:"维度",icon:'fa fa-gears', state:{opened:true}, children:[]});
       targdt[0].children.push({id:"cubedl", text:"度量",icon:'glyphicon glyphicon-signal', state:{opened:true}, children:[]});
-      if(cube && cube.dims && cube.kpis){ //给立方体添加维度及指标
+      if(cube && cube.dims && cube.kpis){ //给数据集添加维度及指标
         var dims = targdt[0].children[0].children;
         var groupexist = function(grouptype){
           var ls = dims;
@@ -350,25 +350,25 @@ export default {
         }
         for(let i=0; i<cube.dims.length; i++){
           var d = cube.dims[i];
-          var obj = {id:d.id, text:d.text, 
+          var obj = {id:d.id, text:d.text,
             li_attr:{tp:"dim",drag:true,col:d.col_name,tname:d.tname,dispName:d.text,vtype:d.valType,alias:d.alias, dimtype:d.dim_type,
             colTable:(d.tableName==null?"":d.tableName),
-            colkey:(d.tableColKey==null?"":d.tableColKey), 
-            coltext:(d.tableColName==null?"":d.tableColName), 
-            dimord:(d.dimord==null?"":d.dimord), 
-            dateformat:(d.dateformat==null?"":d.dateformat), 
+            colkey:(d.tableColKey==null?"":d.tableColKey),
+            coltext:(d.tableColName==null?"":d.tableColName),
+            dimord:(d.dimord==null?"":d.dimord),
+            dateformat:(d.dateformat==null?"":d.dateformat),
             calc:d.iscalc==1?true:false, targetId:d.col_id
             },
             icon:"glyphicon glyphicon-stop icon_dim"
           };
-          
+
           if(d.grouptype != "" && d.grouptype != null){
             var group = groupexist(d.grouptype);
             if(group == null){
               obj = {id:d.grouptype,text:d.groupname, icon:"fa fa-tasks", state:{opened:true}, children:[obj],li_attr:{tp:'group',dispName:d.groupname,drag:true,targetId:d.grouptype}};
               targdt[0].children[0].children.push(obj);
             }else{
-              group.children.push(obj); 
+              group.children.push(obj);
             }
           }else{
             targdt[0].children[0].children.push(obj);
@@ -385,15 +385,15 @@ export default {
             col = k.colname.substring(k.colname.indexOf('(')+1, k.colname.indexOf(')'));
           }
           var obj = {id:k.colId, text:k.aggre+'('+k.text+")",state:{opened:true},
-            li_attr:{tp:"kpi",drag:true,aggre:k.aggre,col:col,tname:k.tname, 
-            unit:(k.unit==null?"":k.unit), fmt:(k.fmt==null?"":k.fmt), 
+            li_attr:{tp:"kpi",drag:true,aggre:k.aggre,col:col,tname:k.tname,
+            unit:(k.unit==null?"":k.unit), fmt:(k.fmt==null?"":k.fmt),
             dispName:k.text, alias:k.alias,
             kpinote:(k.kpi_desc_key==null?"":k.kpi_desc_key),
             calc:(k.calc==0?false:true),calcKpi:k.calcKpi,targetId:k.colid},
             icon:(k.calcKpi==0?"glyphicon glyphicon-stop icon_kpi":"fa fa-circle icon_kpi")
           };
           kpis.push(obj);
-          
+
         }
       }
       var rightRef = $("#cuberighttree").jstree(true);
@@ -450,7 +450,7 @@ export default {
             },
             large_drop_target:'selected',
             large_drag_target:'selected'
-          },	
+          },
           "plugins" : [
               "wholerow","dnd"
             ]
@@ -526,7 +526,7 @@ export default {
           var isCalc = true; //是否是公式？
           if(!left.li_attr.expression||left.li_attr.expression==null||left.li_attr.expression==""){
             isCalc = false;
-          }	
+          }
           if(right.id == 'cubedl' || parent.id == 'cubedl' || (parent.li_attr && parent.li_attr.tp == "kpigroup")){
             //生成ID
             var cid = ts.findCubeMaxId();
@@ -611,7 +611,7 @@ export default {
         leftRef.show_node(id);
       }
       if(this.delObj){
-        this.delObj.push({'type':right.li_attr.tp, id: right.li_attr.targetId}); //在修改立方体时用来删除的内容
+        this.delObj.push({'type':right.li_attr.tp, id: right.li_attr.targetId}); //在修改数据集时用来删除的内容
       }
       rightRef.delete_node(right);
     },

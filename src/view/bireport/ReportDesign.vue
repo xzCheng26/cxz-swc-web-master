@@ -31,10 +31,10 @@
 						</div>
 					</div>
 				</div>
-				
+
 				<div class="col-sm-9 animated fadeInRight">
 					<reportParam :pageInfo="pageInfo" ref="paramForm"></reportParam>
-					
+
 					<el-tabs v-model="pageInfo.showtype" type="border-card">
 						<el-tab-pane label="表格" name="table">
 							<reportTable :pageInfo="pageInfo" ref="tableForm"></reportTable>
@@ -46,7 +46,7 @@
 					<div class="clearbtn">
 						<button type="button" class="btn btn-default btn-xs" @click="cleanData()">清除数据</button>
 					</div>
-					
+
 				</div>
 			</div>
 		</div>
@@ -87,7 +87,7 @@
 					showtype:"table",
 					comps:[
 						{"name":"表格组件","id":1, "type":"table"},
-						{"name":"","id":2, "type":"chart",chartJson:{type:"line",params:[]},kpiJson:[]}], 
+						{"name":"","id":2, "type":"chart",chartJson:{type:"line",params:[]},kpiJson:[]}],
 					params:[]
 				},  //多维分析的配置对象
 				isupdate:false  //是否发生了变动
@@ -101,7 +101,7 @@
 		},
 		computed: {
 		},
-		methods: {	
+		methods: {
 			selectCube(){
 				this.$refs['selectCubeForm'].select();
 			},
@@ -120,7 +120,7 @@
 						core: {
 							data: {
 								id: 'nodata',
-								text: '您还未创建立方体',
+								text: '您还未创建数据集',
 								icon: 'fa fa-warning icon_kpi'
 							}
 						},
@@ -245,7 +245,7 @@
 						showtype:"table",
 						comps:[
 							{"name":"表格组件","id":1, "type":"table"},
-							{"name":"","id":2, "type":"chart",chartJson:{type:"line",params:[]},kpiJson:[]}], 
+							{"name":"","id":2, "type":"chart",chartJson:{type:"line",params:[]},kpiJson:[]}],
 						params:[]
 					}
 					this.initdataset();
@@ -284,7 +284,7 @@
 			}
 		},
 		watch: {
-			
+
 		}
 	}
 </script>

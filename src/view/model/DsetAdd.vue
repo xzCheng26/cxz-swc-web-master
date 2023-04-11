@@ -2,7 +2,7 @@
     <el-form :model="dset" :rules="rules" ref="dsetForm">
       <el-tabs v-model="active" type="card">
         <el-tab-pane label="基本信息" name="base">
-          <el-form-item label="数据集名称" label-width="100px" prop="name">
+          <el-form-item label="数据表名称" label-width="100px" prop="name">
             <el-input v-model="dset.name"></el-input>
           </el-form-item>
           <el-form-item label="数据源" label-width="100px" prop="dsid">
@@ -185,7 +185,7 @@
               prop="type"
               label="类型"
             ></el-table-column>
-            
+
             <el-table-column
               align="center"
               prop="idx"
@@ -242,7 +242,7 @@ export default {
     dsetTableJoin,dsetView
   },
   mounted() {
-    
+
   },
   computed: {},
   methods: {

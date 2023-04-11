@@ -51,7 +51,7 @@
         <el-table-column
           align="center"
           prop="name"
-          label="名称"
+          label="数据表名称"
         ></el-table-column>
         <el-table-column
           align="center"
@@ -61,12 +61,12 @@
         <el-table-column
           align="center"
           prop="dsname"
-          label="2数据源"
+          label="数据源"
         ></el-table-column>
         <el-table-column
           align="center"
           prop="useType"
-          label="连接"
+          label="连接类型"
         ></el-table-column>
       </el-table>
   </div>
@@ -111,7 +111,7 @@ export default {
       this.isupdate = isupdate;
       let o = this.$parent.$parent.$parent;
       let oper =  o.$refs['dsetOper'];
-      o.dsetOperTitle = isupdate===false?"创建数据集":"编辑数据集";
+      o.dsetOperTitle = isupdate===false?"创建数据表":"编辑数据表";
       oper.showDailog();
       o.$refs["dsetAddForm"].addDset(isupdate, this.checked);
     },

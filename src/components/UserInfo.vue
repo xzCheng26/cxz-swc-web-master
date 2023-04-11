@@ -5,8 +5,6 @@
       <dd>{{user.staffId}}</dd>
       <dt>用户名：</dt>
       <dd>{{user.loginName}}</dd>
-      <dt>所属企业：</dt>
-      <dd>成都智慧水利商智科技有限公司</dd>
       <dt>账号状态：</dt>
       <dd>{{ user.state==1?"启用":"停用" }}</dd>
       <dt>登录次数：</dt>

@@ -45,7 +45,7 @@
 		},
 		props:{
 			callback:{
-				type:Function,   //点击选择立方体后的回调函数
+				type:Function,   //点击选择数据集后的回调函数
 				required:true
 			}
 		},
@@ -53,7 +53,7 @@
 		},
 		computed: {
 		},
-		methods: {	
+		methods: {
 			select(){
 				this.show = true;
 				this.search = null;
@@ -65,7 +65,7 @@
 					this.$notify.error({title: '未勾选数据',offset: 50});
 					return;
 				}
-				
+
 				this.callback(chk);
 
 				this.show = false;

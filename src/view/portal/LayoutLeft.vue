@@ -4,13 +4,13 @@
                 <ul class="nav nav-tabs">
                     <li :class="isActive('data-tab-1')"><a data-toggle="tab" @click="switchTabs('data-tab-1')" idx="0" aria-expanded="true">组件</a>
                     </li>
-                    <li :class="isActive('data-tab-2')"><a data-toggle="tab" @click="switchTabs('data-tab-2')" idx="1" aria-expanded="false">立方体</a>
+                    <li :class="isActive('data-tab-2')"><a data-toggle="tab" @click="switchTabs('data-tab-2')" idx="1" aria-expanded="false">数据集</a>
                     </li>
                     <li :class="isActive('data-tab-3')"><a data-toggle="tab" @click="switchTabs('data-tab-3')" idx="2" aria-expanded="false">数据表</a>
                     </li>
                 </ul>
             </div>
-            
+
             <div class="tab-content tab-content2">
                 <div id="data-tab-1" class="tab-pane" :class="isActive('data-tab-1')">
                     <div class="panel-body" style="padding:0px;overflow:auto;">
@@ -61,7 +61,7 @@ export default {
     this.regCompAndParamTree();
   },
   computed: {
-     
+
   },
   methods: {
     switchTabs(val){
@@ -72,21 +72,13 @@ export default {
     },
     regCompAndParamTree(){
         let ts = this;
-        var dt = [{id:'params', text:'参数', icon:"fa fa-binoculars",state:{opened:true}, children:[
-            {id:"input", text:"输入框",li_attr:{tp:"param",ptp:"text"},icon:"fa fa-tag comp_color"},
-            {id:"radio", text:"单选框",li_attr:{tp:"param", ptp:"radio"},icon:"fa fa-tag comp_color"},
-            {id:"checkbox", text:"多选框",li_attr:{tp:"param",ptp:"checkbox"},icon:"fa fa-tag comp_color"},
-            {id:"dateselect", text:"日历框",li_attr:{tp:"param", ptp:"dateselect"},icon:"fa fa-tag comp_color"},
-            {id:"monthselect", text:"月份框",li_attr:{tp:"param", ptp:"monthselect"},icon:"fa fa-tag comp_color"},
-            {id:"yearselect", text:"年份框",li_attr:{tp:"param", ptp:"yearselect"},icon:"fa fa-tag comp_color"}
-        ]}
+        var dt = [
         ];
-        var compDt = [{id:"text", text:"文本",li_attr:{tp:"comp"},icon:"fa fa-file-text-o"},
-            {id:"box", text:"数据块",li_attr:{tp:"comp"},icon:"fa fa-inbox"},
+        var compDt = [
             {id:"chart", text:"图表",li_attr:{tp:"comp"},icon:"fa fa-line-chart"},
             {id:"grid", text:"表格",li_attr:{tp:"comp"},icon:"fa fa-table"},
             {id:"table", text:"交叉表",li_attr:{tp:"comp"},icon:"fa fa-list-alt"}];
-        
+
         var dragfunc = function(treeDiv){
             $("#"+treeDiv+" .jstree-node").draggable({
                 cursor: "point",
@@ -129,7 +121,7 @@ export default {
         }).bind("after_open.jstree", function(){
             dragfunc('paramtree');
         });
-        
+
         $('#comptree').jstree({
             core:{
                 data:compDt
@@ -140,7 +132,7 @@ export default {
         }).bind("ready.jstree",function(a, b){
             dragfunc('comptree');
         })
-        
+
         //参数接收
         $("#optparam").droppable({
             accept:"#paramtree .jstree-node",
@@ -157,7 +149,7 @@ export default {
             out:function(e, ui){
                 $("#optparam").css("border", "1px solid #d3d3d3");
                 $(ui.helper[0]).find("span").removeClass("glyphicon-ok").addClass("glyphicon-remove");
-                
+
             },
             drop:function(e, ui){
                 var ref = $("#paramtree").jstree(true);
@@ -169,7 +161,7 @@ export default {
                     ts.$parent.$refs['prarmAddForm'].newparam(node.li_attr.ptp);
                 }
             }
-            
+
 
         });
     },
@@ -183,7 +175,7 @@ export default {
                 core: {
                     data: {
                         id: 'nodata',
-                        text: '您还未选择数据集',
+                        text: '您还未选择数据表',
                         icon: 'fa fa-warning icon_kpi'
                     }
                 },
@@ -255,7 +247,7 @@ export default {
                 core: {
                     data: {
                         id: 'nodata',
-                        text: '您还未选择立方体',
+                        text: '您还未选择数据集',
                         icon: 'fa fa-warning icon_kpi'
                     }
                 },
@@ -310,10 +302,10 @@ export default {
   watch: {
   },
   beforeMount(){
-   
+
   },
   beforeDestroy(){
-    
+
   }
 }
 </script>

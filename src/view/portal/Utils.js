@@ -157,8 +157,8 @@ export const findAllComps = (pageInfo)=>{
 }
 /**
 //从布局器中查询组件
- * @param {*} pageInfo 
- * @param {*} compId 
+ * @param {*} pageInfo
+ * @param {*} compId
  * @param {*} remove  是否移除查找到的对象
  */
 export const findCompById = (pageInfo, compId, remove)=>{
@@ -187,7 +187,7 @@ export const findCompById = (pageInfo, compId, remove)=>{
 }
 /**
  * 组件事件调用，目前只支持图形，交叉表
- * @param {*} link 
+ * @param {*} link
  */
 export const compFireEvent = (link, ts, paramName, value)=>{
 	let target = link.target;
@@ -227,8 +227,8 @@ export const compFireEvent = (link, ts, paramName, value)=>{
 
 /**
  * 点击返回按钮触发事件返回
- * @param {*} link 
- * @param {*} ts 
+ * @param {*} link
+ * @param {*} ts
  */
 export const compBackEvent = (link, ts)=>{
 	let target = link.target;
@@ -265,11 +265,11 @@ export const compBackEvent = (link, ts)=>{
 	});
 }
 /**
- * 
- * @param {报表导出} tp 
- * @param {*} reportId 
- * @param {*} paramViewForm 
- * @param {*} pageInfo 
+ *
+ * @param {报表导出} tp
+ * @param {*} reportId
+ * @param {*} paramViewForm
+ * @param {*} pageInfo
  */
 export const exportReport = (tp, reportId, paramViewForm, pageInfo)=>{
 	let pageId = reportId;

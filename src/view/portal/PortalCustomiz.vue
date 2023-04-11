@@ -6,7 +6,7 @@
         <el-menu-item index="layout"><i class="glyphicon glyphicon-th-large"></i> 布局</el-menu-item>
         <el-submenu index="data">
           <template slot="title"><i class="fa fa-database"></i> 数据</template>
-          <el-menu-item index="data-1">选择立方体</el-menu-item>
+          <el-menu-item index="data-1">选择数据集</el-menu-item>
           <el-menu-item index="data-2">选择数据表</el-menu-item>
         </el-submenu>
         <el-menu-item index="view"><i class="glyphicon glyphicon-file"></i> 预览</el-menu-item>
@@ -38,7 +38,7 @@
           <el-button @click="saveShow = false">取 消</el-button>
         </div>
       </el-dialog>
-  </div> 
+  </div>
 </template>
 <script>
 import {baseUrl, ajax} from '@/common/biConfig'
@@ -57,7 +57,7 @@ import "jquery-contextmenu";
 import "jquery-contextmenu/dist/jquery.contextMenu.min.css";
 import 'jquery-ui-dist/jquery-ui'
 import 'jquery-ui-dist/jquery-ui.css'
-  
+
 import LayoutRight from './LayoutRight.vue'
 
 export default {
@@ -201,7 +201,7 @@ export default {
     }
   },
   watch: {
-    
+
   },
   mounted() {
     let id =  this.$route.query.id;

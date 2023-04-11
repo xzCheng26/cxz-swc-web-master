@@ -33,14 +33,6 @@
 				</el-form>
 	  		</section>
 		</transition>
-
-		<div align="center" class="bottomtxt">
-
-			<div class="txt" align="center">
-				 <a href='https://www.ruisitech.com' target="_blank">智慧水利BI</a> - <a href='https://www.ruisitech.com/productent.html' target="_blank">企业版</a> - <a href='https://www.ruisitech.com/opensource.html' target="_blank"></a> - <a href='https://www.ruisitech.com/yun.html' target="_blank">智慧水利云</a> - <a href='http://book.ruisitech.com/' target="_blank">使用手册</a> - <a href='https://www.ruisitech.com/suggest.html' target="_blank">问题反馈</a> </div>
-
-               ©成都智慧水利商智科技有限公司 2020 版权所有
-		</div>
   	</div>
 </template>
 
@@ -58,7 +50,7 @@
 				fullscreenLoading: false,
 				rules: {
 					username: [
-			            { required: true, message: '请你输入用户名666', trigger: 'blur' },
+			            { required: true, message: '请你输入用户名', trigger: 'blur' },
 			        ],
 					password: [
 						{ required: true, message: '请输入密码', trigger: 'blur' }

@@ -7,10 +7,10 @@
           <el-tab-pane label="数据源">
             <dsource></dsource>
           </el-tab-pane>
-          <el-tab-pane label="数据集">
+          <el-tab-pane label="数据表">
             <dset ref="dsetGrid"></dset>
           </el-tab-pane>
-          <el-tab-pane label="立方体">
+          <el-tab-pane label="数据集">
             <cube ref="cubeInfo"></cube>
           </el-tab-pane>
         </el-tabs>

@@ -48,12 +48,12 @@
         <el-table-column
           align="center"
           prop="cubeName"
-          label="立方体名称"
+          label="数据集名称"
         ></el-table-column>
         <el-table-column
           align="center"
           prop="desc"
-          label="立方体说明"
+          label="数据集说明"
         ></el-table-column>
         <el-table-column
           align="center"
@@ -79,7 +79,7 @@ export default {
     }
   },
   components: {
-		
+
 	},
   mounted() {
     this.loadData();
@@ -102,7 +102,7 @@ export default {
       this.isupdate = isupdate;
       let o = this.$parent.$parent.$parent;
       let oper =  o.$refs['cubeOper'];
-      o.cubeOperTitle = isupdate===false?"创建立方体":"编辑立方体";
+      o.cubeOperTitle = isupdate===false?"创建数据集":"编辑数据集";
       oper.showDailog();
       o.$refs["cubeForm"].addCube(isupdate, this.checked);
     },

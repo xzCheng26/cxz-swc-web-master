@@ -36,24 +36,24 @@
           </el-form-item>
         </el-form>
       </el-tab-pane>
-      <el-tab-pane label="JNDI" name="jndi">
-        <el-form :model="jndisource" :rules="jndiRules" ref="jndiForm">
-          <el-form-item label="JNDI名称" label-width="100px" prop="jndiName">
-            <el-input v-model="jndisource.jndiName"></el-input>
-          </el-form-item>
-          <el-form-item label="数据源类型" label-width="100px" prop="linkType">
-            <el-select v-model="jndisource.linkType" placeholder="请选择">
-              <el-option
-                v-for="item in opts.linkTypes"
-                :key="item.value"
-                :label="item.label"
-                :value="item.value"
-              >
-              </el-option>
-            </el-select>
-          </el-form-item>
-        </el-form>
-      </el-tab-pane>
+<!--      <el-tab-pane label="JNDI" name="jndi">-->
+<!--        <el-form :model="jndisource" :rules="jndiRules" ref="jndiForm">-->
+<!--          <el-form-item label="JNDI名称" label-width="100px" prop="jndiName">-->
+<!--            <el-input v-model="jndisource.jndiName"></el-input>-->
+<!--          </el-form-item>-->
+<!--          <el-form-item label="数据源类型" label-width="100px" prop="linkType">-->
+<!--            <el-select v-model="jndisource.linkType" placeholder="请选择">-->
+<!--              <el-option-->
+<!--                v-for="item in opts.linkTypes"-->
+<!--                :key="item.value"-->
+<!--                :label="item.label"-->
+<!--                :value="item.value"-->
+<!--              >-->
+<!--              </el-option>-->
+<!--            </el-select>-->
+<!--          </el-form-item>-->
+<!--        </el-form>-->
+<!--      </el-tab-pane>-->
     </el-tabs>
     <div slot="footer" class="dialog-footer">
       <el-button type="warning" @click="testDsource()">测试连接</el-button>
