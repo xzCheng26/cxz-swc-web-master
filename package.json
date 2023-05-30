@@ -1,7 +1,7 @@
 {
   "name": "cxz-swc-vue",
   "version": "1.0.0",
-  "description": "GLUT智慧水利系统",
+  "description": "GLUT智慧水利数据分析系统",
   "author": "cxz-swc <xzCheng26@163.com>",
   "private": true,
   "scripts": {

@@ -68,6 +68,11 @@ let router = new Router({
           component:UserMenu
         },
         {
+          path:'/frame/UserMenu',
+          name:'userMenu2',
+          component:UserMenu
+        },
+        {
           path:'/model/Index',
           name:'model',
           component:Model

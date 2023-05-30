@@ -2,9 +2,9 @@
   	<div class="wrapper-content">
 		  <div class="ibox">
 			  <div class="ibox-content">
-		<p>	<b>“欢迎来到智慧水利系统”</b>
+		<p>	<b>“欢迎来到智慧水利数据分析系统”</b>
 
-		<h2>功能模块</h2>
+		<h2>功能模块</h2>''
 
 <p>1.数据建模</p>
 

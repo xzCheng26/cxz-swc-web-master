@@ -12,13 +12,10 @@
         <a>
           <el-dropdown @command="handleCommand" menu-align='start'>
             <span class="avator" @mouseover="mover" @mouseout="mout">
-              <i class="fa fa-user"></i> demo <span :class="userbtnstyle" class="glyphicon"></span>
+              <i class="fa fa-user"></i> 用户 <span :class="userbtnstyle" class="glyphicon"></span>
             </span>
             <el-dropdown-menu slot="dropdown">
-              <el-dropdown-item command="grxx">个人信息</el-dropdown-item>
               <el-dropdown-item command="xgmm">修改密码</el-dropdown-item>
-              <el-dropdown-item command="wtfk">问题反馈</el-dropdown-item>
-              <el-dropdown-item command="sysc">使用手册</el-dropdown-item>
               <el-dropdown-item command="signout">退出登录</el-dropdown-item>
             </el-dropdown-menu>
           </el-dropdown>
@@ -90,10 +87,6 @@ export default {
           this.$refs['uinfo'].show = true;
         }else if(cmd === 'xgmm'){
           this.$refs['psd'].show = true;
-        }else if(cmd === 'wtfk'){
-          window.open("http://www.ruisitech.com/suggest.html");
-        }else if(cmd === 'sysc'){
-          window.open("http://book.ruisitech.com");
         }
     }
   }
