@@ -8,7 +8,7 @@
           <el-form-item label="数据集说明" label-width="100px" prop="desc">
             <el-input type="textarea" v-model="cube.desc"></el-input>
           </el-form-item>
-          <el-form-item label="对应数据集" label-width="100px" prop="dsetId">
+          <el-form-item label="对应数据表" label-width="100px" prop="dsetId">
             <el-select
               v-model="cube.dsetId"
               placeholder="请选择"

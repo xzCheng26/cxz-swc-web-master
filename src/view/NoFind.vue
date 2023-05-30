@@ -1,35 +1,30 @@
 <template>
-  	<div class="fillcontain">
-		<h3>404 页面不存在</h3>
-		<button class="btn btn-sm btn-primary" @click="goback()">返回首页</button>
+  <div class="fillcontain">
+    <h3>404 页面不存在</h3>
+    <button class="btn btn-sm btn-primary" @click="goback()">返回首页</button>
 
-  	</div>
+  </div>
 </template>
 
 <script>
-	import {baseUrl} from '@/common/biConfig'
+import {baseUrl} from '@/common/biConfig'
 
-	export default {
-	    data(){
-			return {
-				
-			}
-		},
-		mounted(){
-		},
-		computed: {
-		},
-		methods: {
-			goback(){
-				this.$router.push("/Welcome");
-			}
-		},
-		watch: {
-
-		}
-	}
+export default {
+  data () {
+    return {}
+  },
+  mounted () {
+  },
+  computed: {},
+  methods: {
+    goback () {
+      this.$router.push('/Welcome')
+    }
+  },
+  watch: {}
+}
 </script>
 
 <style lang="less" scoped>
-	@import '../style/mixin';
+@import '../style/mixin';
 </style>

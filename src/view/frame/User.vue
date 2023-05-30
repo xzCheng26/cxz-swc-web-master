@@ -71,7 +71,7 @@
 					<el-form-item label="用户名称" label-width="100px" prop="loginName">
 				     	<el-input v-model="user.loginName"  ></el-input>
 				    </el-form-item>
-					
+
 				    <el-form-item label="用户性别" label-width="100px" prop="gender">
 						<el-select v-model="user.gender" placeholder="请选择">
 							<el-option
@@ -80,7 +80,7 @@
 							:label="item.label"
 							:value="item.value">
 							</el-option>
-						</el-select>				    
+						</el-select>
 					</el-form-item>
 					<el-form-item label="账号状态" label-width="100px" prop="state">
 				     	<el-select v-model="user.state" placeholder="请选择">
@@ -201,7 +201,7 @@
 				ajax({
 					type:"GET",
 					data:{page:ts.page, rows:ts.rows},
-					url:"frame/user/list.action", 
+					url:"frame/user/list.action",
 					success:function(resp){
 						ts.tableData = resp.rows;
 						ts.total = resp.total;
@@ -229,7 +229,7 @@
 									});
 						return false;
 					}
-					this.addUserDailog = true;	
+					this.addUserDailog = true;
 					this.dialogTitle = "修改用户";
 					//回写值
 					ajax({
@@ -244,7 +244,7 @@
 						}
 					}, ts);
 				}else{
-					this.addUserDailog = true;	
+					this.addUserDailog = true;
 					this.dialogTitle = "新增用户";
 					//清空值
 					for(let v in this.user){

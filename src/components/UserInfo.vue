@@ -2,49 +2,47 @@
   <el-dialog title="个人信息" :visible.sync="show">
     <dl class="dl-horizontal">
       <dt>登录名：</dt>
-      <dd>{{user.staffId}}</dd>
+      <dd>{{ user.staffId }}</dd>
       <dt>用户名：</dt>
-      <dd>{{user.loginName}}</dd>
+      <dd>{{ user.loginName }}</dd>
       <dt>账号状态：</dt>
-      <dd>{{ user.state==1?"启用":"停用" }}</dd>
+      <dd>{{ user.state == 1 ? '启用' : '停用' }}</dd>
       <dt>登录次数：</dt>
-      <dd>{{user.logCnt}}次</dd>
+      <dd>{{ user.logCnt }}次</dd>
       <dt>上次登录时间：</dt>
-      <dd>{{user.loginTime}}</dd>
+      <dd>{{ user.loginTime }}</dd>
     </dl>
-      <div slot="footer" class="dialog-footer">
-				<el-button @click="show = false">取 消</el-button>
-			  </div>
+    <div slot="footer" class="dialog-footer">
+      <el-button @click="show = false">取 消</el-button>
+    </div>
   </el-dialog>
 </template>
 
 <script>
-import { ajax } from "@/common/biConfig";
-import $ from "jquery";
+import {ajax} from '@/common/biConfig'
+import $ from 'jquery'
 
 export default {
-  name: "userInfo",
-  data() {
+  name: 'userInfo',
+  data () {
     return {
-      show:false,
-      user:{}
-    };
+      show: false,
+      user: {}
+    }
   },
-  mounted:function(){
-    let ts = this;
+  mounted: function () {
+    let ts = this
     ajax({
-      type:"GET",
-      data:{},
-      url:"frame/user.action",
-      success:function(resp){
-        ts.user = resp.rows;
+      type: 'GET',
+      data: {},
+      url: 'frame/user.action',
+      success: function (resp) {
+        ts.user = resp.rows
       }
-    }, ts);
+    }, ts)
   },
-  methods: {
-
-  },
-};
+  methods: {},
+}
 </script>
 
 <style scoped lang="less">
